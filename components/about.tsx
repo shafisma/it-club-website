@@ -13,7 +13,7 @@ export default function About() {
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Since its establishment on March 14, 2013, MMITC has been the heart of technological growth at Motijheel
-              Model School and College, bringing together brilliant minds to explore, learn, and create.
+              Model School and College, bringing brilliant minds to explore, learn, and create.
             </p>
           </div>
 

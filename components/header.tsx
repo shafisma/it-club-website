@@ -21,7 +21,7 @@ export default function Header() {
   }
 //end of copied part
   return (
-    <header ref={headerRef} className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
+  <header ref={headerRef} className="sticky top-0 z-50 bg-background backdrop-blur border-b border-border">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <Link href="#" className="text-xl font-bold text-primary">
           <Image src="/logo.png" alt="Motijheel Model IT Club" width={90} height={100} />
@@ -48,7 +48,7 @@ export default function Header() {
       </nav>
 
       {isOpen && (
-        <div className="md:hidden bg-card border-t border-border">
+  <div className="md:hidden bg-card border-t border-border">
           <div className="px-4 py-4 flex flex-col gap-4">
             <a href="#about" onClick={(e) => handleNavClick(e, "about")} className="text-foreground hover:text-accent font-medium transition duration-200">
               About
