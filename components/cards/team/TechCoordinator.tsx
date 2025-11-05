@@ -1,6 +1,6 @@
 export default function TechCoordinator() {
   return (
-    <div className="p-6 bg-white border border-border rounded-lg text-center hover:shadow-md transition-all duration-200">
+  <div className="flex flex-col items-center gap-2 p-6 bg-rose-50 border-2 border-black rounded-[5px] text-sm font-medium text-black shadow-[4px_4px_0px_0px_black] transition-all hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none text-center">
       <div className="w-12 h-12 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
         <span className="text-xl font-bold text-accent">✦</span>
       </div>
