@@ -5,8 +5,9 @@ export default function Treasurer() {
         <span className="text-xl font-bold text-accent">✦</span>
       </div>
       <h3 className="text-lg font-bold text-foreground mb-1">Treasurer</h3>
-      <p className="text-accent font-semibold text-sm mb-3">To be decided</p>
-      <p className="text-muted-foreground text-sm leading-relaxed">Financial management and accounting</p>
+      <p className="text-accent font-semibold text-sm mb-1">Sayef Ciam</p>
+      <p className="text-muted-foreground text-sm mb-1">Class: 9/Padma</p>
+      <p className="text-muted-foreground text-sm mb-3">Contact: 01717386749</p>
     </div>
   )
 }

@@ -5,8 +5,9 @@ export default function VicePresident() {
         <span className="text-xl font-bold text-accent">✦</span>
       </div>
       <h3 className="text-lg font-bold text-foreground mb-1">Vice President</h3>
-      <p className="text-accent font-semibold text-sm mb-3">Tahsin Ahmed</p>
-      <p className="text-muted-foreground text-sm leading-relaxed">Support and co-leadership</p>
+      <p className="text-accent font-semibold text-sm mb-1">Tahsin Ahmed</p>
+      <p className="text-muted-foreground text-sm mb-1">Class: 9/Buriganga</p>
+      <p className="text-muted-foreground text-sm mb-3">Contact: 01309673868</p>
     </div>
   )
 }

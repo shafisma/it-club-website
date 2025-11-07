@@ -5,8 +5,9 @@ export default function JointSecretary() {
         <span className="text-xl font-bold text-accent">✦</span>
       </div>
       <h3 className="text-lg font-bold text-foreground mb-1">Joint Secretary</h3>
-      <p className="text-accent font-semibold text-sm mb-3">To be decided</p>
-      <p className="text-muted-foreground text-sm leading-relaxed">Secondary administrative duties</p>
+      <p className="text-accent font-semibold text-sm mb-1">Ashrafi Khan Rafi</p>
+      <p className="text-muted-foreground text-sm mb-1">Class: 9/Kopotakkho</p>
+      <p className="text-muted-foreground text-sm mb-3">Contact: 01715010331</p>
     </div>
   )
 }

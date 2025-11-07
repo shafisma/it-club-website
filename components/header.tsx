@@ -4,6 +4,7 @@ import { useState, useRef } from "react"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { FloatingNav } from "./ui/floating-navbar"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,9 +23,22 @@ export default function Header() {
 //end of copied part
   return (
   <header ref={headerRef} className="sticky top-0 z-50 bg-background backdrop-blur border-b border-border">
+      {/* floating nav items for mobile — always present on small screens */}
+      <div className="md:hidden">
+        {(() => {
+          const navItems = [
+            { name: "About", link: "#about" },
+            { name: "Activities", link: "#activities" },
+            { name: "Team", link: "#team" },
+            { name: "Contact", link: "#contact" },
+          ]
+
+          return <FloatingNav navItems={navItems} className="md:hidden" />
+        })()}
+      </div>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <Link href="#" className="text-xl font-bold text-primary">
-          <Image src="/logo.png" alt="Motijheel Model IT Club" width={90} height={100} />
+          <Image src="/logo.png" alt="Motijheel Model IT Club" width={50} height={50} />
         </Link>
 
         <div className="hidden md:flex gap-8">
