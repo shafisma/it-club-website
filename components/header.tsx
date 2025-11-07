@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { FloatingNav } from "./ui/floating-navbar"
+import LanguageToggle from "./ui/language-toggle"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,25 +24,22 @@ export default function Header() {
 //end of copied part
   return (
   <header ref={headerRef} className="sticky top-0 z-50 bg-background backdrop-blur border-b border-border">
-      {/* floating nav items for mobile — always present on small screens */}
-      <div className="md:hidden">
-        {(() => {
-          const navItems = [
-            { name: "About", link: "#about" },
-            { name: "Activities", link: "#activities" },
-            { name: "Team", link: "#team" },
-            { name: "Contact", link: "#contact" },
-          ]
-
-          return <FloatingNav navItems={navItems} className="md:hidden" />
-        })()}
-      </div>
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      {/* Floating nav for mobile */}
+      {(() => {
+        const navItems = [
+          { name: "About", link: "#about" },
+          { name: "Activities", link: "#activities" },
+          { name: "Team", link: "#team" },
+          { name: "Contact", link: "#contact" },
+        ]
+        return <FloatingNav navItems={navItems} />
+      })()}
+      <nav className="hidden md:flex max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 justify-between items-center">
         <Link href="#" className="text-xl font-bold text-primary">
           <Image src="/logo.png" alt="Motijheel Model IT Club" width={50} height={50} />
         </Link>
 
-        <div className="hidden md:flex gap-8">
+        <div className="flex items-center gap-8">
           <a href="#about" onClick={(e) => handleNavClick(e, "about")} className="text-foreground hover:text-accent font-medium transition duration-200">
             About
           </a>
@@ -54,16 +52,16 @@ export default function Header() {
           <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="text-foreground hover:text-accent font-medium transition duration-200">
             Contact
           </a>
+          <LanguageToggle />
         </div>
-
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-foreground">
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </nav>
 
       {isOpen && (
-  <div className="md:hidden bg-card border-t border-border">
+        <div className="md:hidden bg-card border-t border-border">
           <div className="px-4 py-4 flex flex-col gap-4">
+            <div className="flex justify-center pb-4">
+              <LanguageToggle />
+            </div>
             <a href="#about" onClick={(e) => handleNavClick(e, "about")} className="text-foreground hover:text-accent font-medium transition duration-200">
               About
             </a>
