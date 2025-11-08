@@ -9,6 +9,7 @@ import MediaPublicationsSecretary from "./cards/team/MediaPublicationsSecretary"
 import TechCoordinator from "./cards/team/TechCoordinator"
 import TrainingSecretary from "./cards/team/TrainingSecretary"
 import HRSecretary from "./cards/team/HRSecretary"
+import SecMediaPublicationsSecretary from "./cards/team/2ndMediaPublicationsSecretary"
 
 export default function Team() {
   return (
@@ -26,6 +27,7 @@ export default function Team() {
           <OfficeSecretary />
           <Treasurer />
           <MediaPublicationsSecretary />
+          <SecMediaPublicationsSecretary />
           <TechCoordinator />
           <TrainingSecretary />
           <HRSecretary />

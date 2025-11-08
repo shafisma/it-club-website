@@ -2,7 +2,7 @@
 import React, { JSX } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
-import { useMobile } from "@/hooks/use-mobile";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 
 export const FloatingNav = ({
@@ -16,7 +16,7 @@ export const FloatingNav = ({
   }[];
   className?: string;
 }) => {
-  const isMobile = useMobile();
+  const isMobile = useIsMobile();
 
   if (!isMobile) {
     return null;

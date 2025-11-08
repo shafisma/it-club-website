@@ -5,7 +5,6 @@ import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { FloatingNav } from "./ui/floating-navbar"
-import LanguageToggle from "./ui/language-toggle"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -52,16 +51,13 @@ export default function Header() {
           <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="text-foreground hover:text-accent font-medium transition duration-200">
             Contact
           </a>
-          <LanguageToggle />
+
         </div>
       </nav>
 
       {isOpen && (
         <div className="md:hidden bg-card border-t border-border">
           <div className="px-4 py-4 flex flex-col gap-4">
-            <div className="flex justify-center pb-4">
-              <LanguageToggle />
-            </div>
             <a href="#about" onClick={(e) => handleNavClick(e, "about")} className="text-foreground hover:text-accent font-medium transition duration-200">
               About
             </a>
