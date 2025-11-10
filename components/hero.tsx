@@ -14,7 +14,6 @@ export default function Hero() {
 
         <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
           A community of students passionate about technology, innovation, and creative problem-solving.
-          Founded in 2013 at Motijheel Model School and College, Dhaka.
         </p>
 
         <div className="flex flex-row gap-4 justify-center">

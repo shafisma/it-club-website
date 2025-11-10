@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button"
-
 export default function CTA() {
   return (
-    <section id="contact" className="py-16 px-4 md:px-6 lg:px-8">
+    <section id="joinnow" className="py-16 px-4 md:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto text-center">
         <div className="bg-primary/10 rounded-3xl px-6 py-12 md:py-16 md:px-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
