@@ -8,7 +8,6 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Motijheel Model IT Club",
   description: "Official website of the IT Club at Motijheel Model School and College",
-  generator: "v0.app",
 }
 
 export default function RootLayout({
