@@ -2,7 +2,9 @@
 
 import type React from "react"
 import { useState } from "react"
-import Map from "./Map"
+import dynamic from "next/dynamic"
+// Use SSR false?
+const Map = dynamic(() => import("./Map"), { ssr: false })
 
 export default function Contact() {
   const [formData, setFormData] = useState({
