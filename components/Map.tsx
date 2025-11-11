@@ -29,7 +29,7 @@ export default function Map() {
 
     L.marker([23.733001279877623, 90.42425080852009])
       .addTo(map)
-      .bindPopup("📍 Motijheel Model School & College — IT Club")
+      .bindPopup("📍 Motijheel Model School & College, 5th floor, ICT Lab")
       .openPopup();
 
   }, []);
