@@ -3,8 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ---------------------------- */
+/* Light / Dark colors */
+/* ---------------------------- */
 :root {
-  /* Changed to light background with minimal color palette */
   --background: oklch(0.98 0 0);
   --foreground: oklch(0.2 0 0);
   --card: oklch(0.96 0 0);
@@ -76,8 +78,9 @@
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-sans: "Inter", "sans-serif";
+  --font-mono: "ui-monospace, monospace";
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -117,11 +120,12 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+  *, *::before, *::after {
+    border-color: var(--color-border);
+    outline-color: var(--color-ring);
   }
 }
 

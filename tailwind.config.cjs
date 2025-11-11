@@ -1,25 +1,21 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './pages/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        // These names create `font-base` and `font-heading` utility classes
-        base: ['var(--font-sans)'],
-        heading: ['var(--font-sans)'],
+        sans: ["Inter", "sans-serif"], // Inter for all font-sans
+        mono: ["ui-monospace", "monospace"],
       },
       borderRadius: {
-        // creates `rounded-base`
-        base: 'var(--radius-base)',
+        base: "0.625rem",
       },
-      boxShadow: {
-        // creates `shadow-shadow`
-        shadow: 'var(--shadow-shadow)',
+      colors: {
+        border: "var(--color-border)",
+        primary: "var(--color-primary)",
+        background: "var(--color-background)",
+        foreground: "var(--color-foreground)",
       },
-      // You can add more token-based mappings here if needed
     },
   },
   plugins: [],
