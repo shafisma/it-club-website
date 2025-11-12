@@ -5,14 +5,9 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-// Remove these calls
-// const _geist = GeistSans({ subsets: ["latin"] })
-// const _geistMono = GeistMono({ subsets: ["latin"] })
-
 export const metadata: Metadata = {
   title: "Motijheel IT Club - Drop Your Innovation",
   description: "Official website of the IT Club at Motijheel Model School and College",
-  generator: "v0.app",
 }
 
 export default function RootLayout({
