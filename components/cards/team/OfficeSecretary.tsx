@@ -7,7 +7,6 @@ export default function OfficeSecretary() {
       <h3 className="text-lg font-bold text-foreground mb-1">Office Secretary</h3>
       <p className="text-accent font-semibold text-sm mb-1">Kazi Anas Mohammad</p>
       <p className="text-muted-foreground text-sm mb-1">Class: 8/Modhumoti</p>
-      <p className="text-muted-foreground text-sm mb-3">Contact: 01886942692</p>
     </div>
   )
 }

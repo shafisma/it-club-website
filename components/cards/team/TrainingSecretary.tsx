@@ -7,7 +7,6 @@ export default function TrainingSecretary() {
       <h3 className="text-lg font-bold text-foreground mb-1">Training Secretary</h3>
       <p className="text-accent font-semibold text-sm mb-1">Mohammad Anas</p>
       <p className="text-muted-foreground text-sm mb-1">Class: 7/Modhumoti</p>
-      <p className="text-muted-foreground text-sm mb-3">Contact: 01712525249</p>
     </div>
   )
 }

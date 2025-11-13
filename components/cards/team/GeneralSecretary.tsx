@@ -7,7 +7,6 @@ export default function GeneralSecretary() {
       <h3 className="text-lg font-bold text-foreground mb-1">General Secretary</h3>
       <p className="text-accent font-semibold text-sm mb-1">Wazih Ishrak Rahman</p>
       <p className="text-muted-foreground text-sm mb-1">Class: 9/EV</p>
-      <p className="text-muted-foreground text-sm mb-3">Contact: 01402305017</p>
     </div>
   )
 }

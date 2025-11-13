@@ -10,7 +10,6 @@ export default function MediaPublicationsSecretary() {
         <div>
           <p className="text-accent font-semibold text-sm mb-1">Aryan Rafi</p>
           <p className="text-muted-foreground text-sm mb-1">Class: 9/Surma</p>
-          <p className="text-muted-foreground text-sm">Contact: 01972910521</p>
         </div>
       </div>
     </div>

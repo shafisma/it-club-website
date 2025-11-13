@@ -7,7 +7,6 @@ export default function President() {
       <h3 className="text-lg font-bold text-foreground mb-1">President</h3>
       <p className="text-accent font-semibold text-sm mb-1">Md. Tafshirul Islam</p>
       <p className="text-muted-foreground text-sm mb-1">Class: 10/Buriganga</p>
-      <p className="text-muted-foreground text-sm mb-3">Contact: 01792918760</p>
     </div>
   )
 }
