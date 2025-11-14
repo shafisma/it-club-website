@@ -3,9 +3,9 @@ export default function Hero() {
     <section className="min-h-screen flex items-center justify-center">
       <div className="max-w-4xl mx-auto px-4 text-center">
         <div className="mb-10">
-          <a href="https://forms.gle/ViBzt5nMncQUBoME7" target="_blank" rel="noopener noreferrer">
+          <a href="/events" target="_blank" rel="noopener noreferrer">
           <span className="text-sm font-bold text-accent uppercase tracking-wider px-4 py-2 rounded-full border-2 border-black bg-yellow-300 shadow-[3px_3px_0px_0px_black]">
-             Join us at RoboVerse!
+             Join us at RoboVerse (Limited Seats!!!)
           </span></a>
         </div>
 
@@ -23,9 +23,9 @@ export default function Hero() {
 >
   Join The Club
 </button></a>
-          <a href="/#about"><button
+          <a href="/#events"><button
   className="inline-flex items-center justify-center whitespace-nowrap rounded-[5px] text-sm font-medium ring-offset-white transition-all gap-2 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-[oklch(0%_0_0)] bg-[oklch(85%_0.15_145)] border-2 border-black shadow-[4px_4px_0px_0px_black] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none h-10 px-4 py-2"
->Learn More
+>Explore RoboVerse
 </button></a>
         </div>
       </div>

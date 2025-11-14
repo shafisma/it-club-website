@@ -26,6 +26,7 @@ export default function Header() {
       {/* Floating nav for mobile */}
       {(() => {
         const navItems = [
+          { name: "Events", link: "events" },
           { name: "About", link: "#about" },
           { name: "Activities", link: "#activities" },
           { name: "Team", link: "#team" },
@@ -34,11 +35,14 @@ export default function Header() {
         return <FloatingNav navItems={navItems} />
       })()}
       <nav className="hidden md:flex max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 justify-between items-center">
-        <Link href="#" className="text-xl font-bold text-primary">
+        <Link href="/" className="text-xl font-bold text-primary">
           <Image src="/logo.png" alt="Motijheel Model IT Club" width={50} height={50} />
         </Link>
 
         <div className="flex items-center gap-8">
+          <a href="/events" onClick={(e) => handleNavClick(e, "events")} className="text-transparent bg-linear-to-br from-blue-500 to-teal-400 bg-clip-text hover:text-accent font-medium transition duration-200">
+            Events
+          </a>
           <a href="#about" onClick={(e) => handleNavClick(e, "about")} className="text-foreground hover:text-accent font-medium transition duration-200">
             About
           </a>

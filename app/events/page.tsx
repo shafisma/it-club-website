@@ -14,7 +14,7 @@ export default function EventsPage() {
     <div className="min-h-screen bg-background">
       <Header />
       {/* Hero Section */}
-      <div className="bg-[url('download (1).png')]">
+      <div className="bg-[url('/download (1).png')]">
       <div className="max-w-6xl mx-auto px-4 text-center mb-16 pt-20">
         <div className="mb-4">
           <span className="text-sm font-bold text-accent uppercase tracking-wider px-4 py-2 rounded-full border-2 border-black bg-yellow-300 shadow-[3px_3px_0px_0px_black]">
