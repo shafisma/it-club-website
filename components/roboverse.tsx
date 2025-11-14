@@ -8,11 +8,11 @@ export default function RoboverseHero() {
           </span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-black mb-6 text-foreground leading-tight">
+        <h1 className="text-6xl md:text-8xl font-black mb-6 text-foreground leading-tight">
           ROBOVERSE <span className="text-[#73d1fd]">1.0</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto font-semibold">
+        <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto font-semibold">
           Dive into the world of Robotics, Arduino & Sensors!
         </p>
 
@@ -32,7 +32,7 @@ export default function RoboverseHero() {
           href="https://forms.gle/ViBzt5nMncQUBoME7" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-block px-4 py-2 text-lg font-extrabold rounded-lg border-3 border-black bg-[#73d1fd] shadow-[6px_6px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+          className="inline-block px-8 py-4 text-xl font-black rounded-xl border-3 border-black bg-[#73d1fd] shadow-[6px_6px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
         >
           REGISTER NOW
         </a>
@@ -40,7 +40,7 @@ export default function RoboverseHero() {
           href="/events" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-block px-4 py-2 text-lg font-extrabold rounded-lg border-3 border-black bg-[#73d1fd] shadow-[6px_6px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+          className="inline-block px-8 py-4 text-xl font-black rounded-xl border-3 border-black bg-[#73d1fd] shadow-[6px_6px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
         >
           LEARN MORE
         </a></div>
