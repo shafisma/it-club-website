@@ -2,10 +2,11 @@ export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center">
       <div className="max-w-4xl mx-auto px-4 text-center">
-        <div className="mb-6">
-          <span className="text-sm font-semibold text-accent uppercase tracking-wide">
-            Motijheel Model IT Club
-          </span>
+        <div className="mb-10">
+          <a href="https://forms.gle/ViBzt5nMncQUBoME7" target="_blank" rel="noopener noreferrer">
+          <span className="text-sm font-bold text-accent uppercase tracking-wider px-4 py-2 rounded-full border-2 border-black bg-yellow-300 shadow-[3px_3px_0px_0px_black]">
+             Join us at RoboVerse!
+          </span></a>
         </div>
 
         <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground leading-tight">
