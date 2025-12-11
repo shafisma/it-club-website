@@ -40,7 +40,7 @@ export default function Header() {
         </Link>
 
         <div className="flex items-center gap-8">
-          <a href="/events" onClick={(e) => handleNavClick(e, "events")} className="text-transparent bg-linear-to-br from-blue-500 to-teal-400 bg-clip-text hover:text-accent font-medium transition duration-200">
+          <a href="/events" className="text-transparent bg-linear-to-br from-blue-500 to-teal-400 bg-clip-text hover:text-accent font-medium transition duration-200">
             Events
           </a>
           <a href="#about" onClick={(e) => handleNavClick(e, "about")} className="text-foreground hover:text-accent font-medium transition duration-200">

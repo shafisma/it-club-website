@@ -5,7 +5,7 @@ export default function Hero() {
         <div className="mb-10">
           <a href="/events" target="_blank" rel="noopener noreferrer">
           <span className="text-sm font-bold text-accent uppercase tracking-wider px-4 py-2 rounded-full border-2 border-black bg-yellow-300 shadow-[3px_3px_0px_0px_black]">
-             Join us at RoboVerse (Limited Seats!!!)
+             Join us at RoboVerse
           </span></a>
         </div>
 

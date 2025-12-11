@@ -2,7 +2,6 @@ import President from "./cards/team/President"
 import VicePresident from "./cards/team/VicePresident"
 import GeneralSecretary from "./cards/team/GeneralSecretary"
 import JointSecretary from "./cards/team/JointSecretary"
-import OrganizingSecretary from "./cards/team/OrganizingSecretary"
 import OfficeSecretary from "./cards/team/OfficeSecretary"
 import Treasurer from "./cards/team/Treasurer"
 import MediaPublicationsSecretary from "./cards/team/MediaPublicationsSecretary"
@@ -23,7 +22,6 @@ export default function Team() {
           <VicePresident />
           <GeneralSecretary />
           <JointSecretary />
-          <OrganizingSecretary />
           <OfficeSecretary />
           <Treasurer />
           <MediaPublicationsSecretary />
@@ -31,6 +29,23 @@ export default function Team() {
           <TechCoordinator />
           <TrainingSecretary />
           <HRSecretary />
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center text-foreground">Executive Members</h1>
+            <div className="flex flex-col items-center gap-2 p-6 bg-rose-50 border-2 border-black rounded-[5px] text-sm font-medium text-black shadow-[4px_4px_0px_0px_black] transition-all hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none text-center">
+                <div className="w-12 h-12 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
+                  <span className="text-xl font-bold text-accent">✦</span>
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-1">Executive Member</h3>
+                <p className="text-accent font-semibold text-sm mb-1">MD. JOBAYER PATWARY</p>
+                <p className="text-muted-foreground text-sm mb-1">Class: 9 - B/EV</p>
+              </div>
+                <div className="flex flex-col items-center gap-2 p-6 bg-rose-50 border-2 border-black rounded-[5px] text-sm font-medium text-black shadow-[4px_4px_0px_0px_black] transition-all hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none text-center">
+                <div className="w-12 h-12 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
+                  <span className="text-xl font-bold text-accent">✦</span>
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-1">Executive Member</h3>
+                <p className="text-accent font-semibold text-sm mb-1">Swagata Sana</p>
+                <p className="text-muted-foreground text-sm mb-1">Class: 9 - Beli</p>
+              </div>
         </div>
       </div>
     </section>
