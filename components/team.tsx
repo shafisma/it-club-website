@@ -2,7 +2,6 @@ import President from "./cards/team/President"
 import VicePresident from "./cards/team/VicePresident"
 import GeneralSecretary from "./cards/team/GeneralSecretary"
 import JointSecretary from "./cards/team/JointSecretary"
-import OfficeSecretary from "./cards/team/OfficeSecretary"
 import Treasurer from "./cards/team/Treasurer"
 import MediaPublicationsSecretary from "./cards/team/MediaPublicationsSecretary"
 import TechCoordinator from "./cards/team/TechCoordinator"
@@ -22,7 +21,6 @@ export default function Team() {
           <VicePresident />
           <GeneralSecretary />
           <JointSecretary />
-          <OfficeSecretary />
           <Treasurer />
           <MediaPublicationsSecretary />
           <SecMediaPublicationsSecretary />
