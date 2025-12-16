@@ -14,7 +14,7 @@ export default function Home() {
       <Team />
       <Contact />
       <CTA />
-      <div className="pb-4 flex items-center justify-between px-4 pt-8 md:flex-row bg-[#152A32]">
+      <div className="pb-4 flex items-center justify-between px-4 pt-8 md:flex-row dark:bg-[#152A32]">
         <p className="text-footer-link text-sm">© 2025-2026 Motijheel Model IT Club. All rights reserved.</p>
       </div>
     </main>
