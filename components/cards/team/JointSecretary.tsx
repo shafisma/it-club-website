@@ -4,7 +4,7 @@ export default function JointSecretary() {
       <div className="w-12 h-12 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
         <span className="text-xl font-bold text-accent">✦</span>
       </div>
-      <h3 className="text-lg font-bold text-foreground mb-1">Joint Secretary</h3>
+      <h3 className="text-lg font-bold text-black mb-1">Joint Secretary</h3>
       <p className="text-accent font-semibold text-sm mb-1">Ashrafi Khan Rafi</p>
       <p className="text-muted-foreground text-sm mb-1">Class: 9/Kopotakkho</p>
     </div>

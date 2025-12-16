@@ -20,15 +20,15 @@ export default function About() {
           <div className="space-y-4">
             <div className="flex flex-col items-start gap-2 p-6 bg-pink-50 border-2 border-black rounded-[5px] text-sm font-medium text-[oklch(0%_0_0)] shadow-[4px_4px_0px_0px_black] transition-all hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none">
               <h4 className="font-bold text-accent mb-2">Our Motto</h4>
-              <p className="text-foreground font-semibold">Drop Your Innovation</p>
+              <p className="text-black font-semibold">Drop Your Innovation</p>
             </div>
             <div className="flex flex-col items-start gap-2 p-6 bg-amber-50 border-2 border-black rounded-[5px] text-sm font-medium text-[oklch(0%_0_0)] shadow-[4px_4px_0px_0px_black] transition-all hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none">
               <h4 className="font-bold text-accent mb-2">Founded</h4>
-              <p className="text-foreground">March 14, 2013</p>
+              <p className="text-black">March 14, 2013</p>
             </div>
             <div className="flex flex-col items-start gap-2 p-6 bg-rose-50 border-2 border-black rounded-[5px] text-sm font-medium text-[oklch(0%_0_0)] shadow-[4px_4px_0px_0px_black] transition-all hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none">
               <h4 className="font-bold text-accent mb-2">Location</h4>
-              <p className="text-foreground">Motijheel Model School and College, Dhaka-1000</p>
+              <p className="text-black">Motijheel Model School and College, Dhaka-1000</p>
             </div>
           </div>
         </div>

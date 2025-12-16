@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { FloatingNav } from "./ui/floating-navbar"
+import { ThemeToggle } from "./theme-toggle"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,7 +23,7 @@ export default function Header() {
   }
 //end of copied part
   return (
-  <header ref={headerRef} className="sticky top-0 z-50 bg-background backdrop-blur border-b border-border">
+  <header ref={headerRef} className="sticky top-0 z-50 dark:bg-[#152A32] bg-background backdrop-blur border-b-2 border-border">
       {/* Floating nav for mobile */}
       {(() => {
         const navItems = [
@@ -46,16 +47,13 @@ export default function Header() {
           <a href="#about" onClick={(e) => handleNavClick(e, "about")} className="text-foreground hover:text-accent font-medium transition duration-200">
             About
           </a>
-          <a href="#activities" onClick={(e) => handleNavClick(e, "activities")} className="text-foreground hover:text-accent font-medium transition duration-200">
-            Activities
-          </a>
           <a href="#team" onClick={(e) => handleNavClick(e, "team")} className="text-foreground hover:text-accent font-medium transition duration-200">
             Team
           </a>
           <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="text-foreground hover:text-accent font-medium transition duration-200">
             Contact
           </a>
-
+          <ThemeToggle />
         </div>
       </nav>
 

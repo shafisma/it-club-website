@@ -13,7 +13,6 @@ export default function EventsPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      {/* Hero Section */}
       <div className="bg-[url('/download (1).png')]">
       <div className="max-w-6xl mx-auto px-4 text-center mb-16 pt-20">
         <div className="mb-4">
@@ -52,8 +51,6 @@ export default function EventsPage() {
         </a>
       </div>
       </div>
-
-      {/* Projects Section */}
       <div className="max-w-6xl mx-auto px-4 mb-16">
         <h2 className="text-4xl md:text-5xl font-black mb-8 text-center">
           Build 6 Awesome <span className="text-[#73d1fd]">Projects</span> 💥
@@ -66,14 +63,12 @@ export default function EventsPage() {
               className="p-6 rounded-2xl border-3 border-black bg-white shadow-[6px_6px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
             >
               <div className="text-5xl mb-4">{project.icon}</div>
-              <h3 className="text-2xl font-bold mb-2">{project.name}</h3>
+              <p className="text-2xl font-bold mb-2">{project.name}</p>
               <p className="text-muted-foreground font-semibold">{project.desc}</p>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Rewards Section */}
       <div className="max-w-6xl mx-auto px-4 mb-16">
         <h2 className="text-4xl md:text-5xl font-black mb-8 text-center">
           Rewards & <span className="text-[#73d1fd]">Recognition</span> 🏆
@@ -82,19 +77,17 @@ export default function EventsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-8 rounded-2xl border-3 border-black bg-yellow-200 shadow-[6px_6px_0px_0px_black]">
             <div className="text-5xl mb-4">🎓</div>
-            <h3 className="text-2xl font-bold mb-2">Participation Certificates</h3>
+            <p className="text-2xl font-bold mb-2">Participation Certificates</p>
             <p className="text-lg font-semibold">All participants receive certificates of completion!</p>
           </div>
           
           <div className="p-8 rounded-2xl border-3 border-black bg-orange-200 shadow-[6px_6px_0px_0px_black]">
             <div className="text-5xl mb-4">🏆</div>
-            <h3 className="text-2xl font-bold mb-2">Achievement Awards</h3>
+            <p className="text-2xl font-bold mb-2">Achievement Awards</p>
             <p className="text-lg font-semibold">Top 3 quiz winners earn special Achievement Awards!</p>
           </div>
         </div>
       </div>
-
-      {/* What You'll Learn Section */}
       <div className="max-w-6xl mx-auto px-4 mb-16">
         <h2 className="text-4xl md:text-5xl font-black mb-8 text-center">
           What You'll <span className="text-[#73d1fd]">Learn</span> 💻
@@ -103,25 +96,23 @@ export default function EventsPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 rounded-2xl border-3 border-black bg-blue-200 shadow-[6px_6px_0px_0px_black] text-center">
             <div className="text-4xl mb-3">🤖</div>
-            <h3 className="text-xl font-bold mb-2">Robotics Fundamentals</h3>
+            <p className="text-xl font-bold mb-2">Robotics Fundamentals</p>
             <p className="font-semibold text-muted-foreground">Master the basics of robotics and automation</p>
           </div>
           
           <div className="p-6 rounded-2xl border-3 border-black bg-green-200 shadow-[6px_6px_0px_0px_black] text-center">
             <div className="text-4xl mb-3">⚡</div>
-            <h3 className="text-xl font-bold mb-2">Arduino Programming</h3>
+            <p className="text-xl font-bold mb-2">Arduino Programming</p>
             <p className="font-semibold text-muted-foreground">Code microcontrollers like a pro</p>
           </div>
           
           <div className="p-6 rounded-2xl border-3 border-black bg-purple-200 shadow-[6px_6px_0px_0px_black] text-center">
             <div className="text-4xl mb-3">📡</div>
-            <h3 className="text-xl font-bold mb-2">Sensor Integration</h3>
+            <p className="text-xl font-bold mb-2">Sensor Integration</p>
             <p className="font-semibold text-muted-foreground">Work with various sensors and components</p>
           </div>
         </div>
       </div>
-
-      {/* Event Details */}
       <div className="max-w-6xl mx-auto px-4 mb-16">
         <div className="p-8 rounded-2xl border-3 border-black bg-gradient-to-br from-pink-200 to-purple-200 shadow-[8px_8px_0px_0px_black]">
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-center">

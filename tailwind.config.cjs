@@ -1,11 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"], // Inter for all font-sans
+        sans: ['var(--font-geist-sans)'],
         mono: ["ui-monospace", "monospace"],
+        space: ['"Space Grotesk"', ...defaultTheme.fontFamily.sans],
       },
       borderRadius: {
         base: "0.625rem",

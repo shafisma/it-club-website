@@ -6,21 +6,17 @@ import "leaflet/dist/leaflet.css";
 
 export default function Map() {
   useEffect(() => {
-    // ✅ Fix Leaflet icon issue (must be inside useEffect to avoid SSR)
     delete (L.Icon.Default.prototype as any)._getIconUrl;
     L.Icon.Default.mergeOptions({
       iconRetinaUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon-2x.png",
       iconUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon.png",
       shadowUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png",
     });
-
-    // ✅ Prevent multiple map initialization (Fast Refresh issue)
     const existingMap = L.DomUtil.get("map");
     if (existingMap && (existingMap as any)._leaflet_id) {
       (existingMap as any)._leaflet_id = null;
     }
 
-    // ✅ Initialize map
     const map = L.map("map").setView([23.733001279877623, 90.42425080852009], 16);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {

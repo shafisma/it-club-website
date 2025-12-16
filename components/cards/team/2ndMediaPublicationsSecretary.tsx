@@ -4,11 +4,9 @@ export default function secMediaPublicationsSecretary() {
       <div className="w-12 h-12 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
         <span className="text-xl font-bold text-accent">✦</span>
       </div>
-      <h3 className="text-lg font-bold text-foreground mb-3">Media & Publications Secretary</h3>
+      <h3 className="text-lg font-bold text-black mb-3">Media & Publications Secretary</h3>
       
       <div className="space-y-4">
-        <div className="w-full h-px bg-black/10" />
-
         <div>
           <p className="text-accent font-semibold text-sm mb-1">Archi Saptashe</p>
           <p className="text-muted-foreground text-sm mb-1">Class: 9/Golap</p>
