@@ -11,9 +11,9 @@ export default function EventsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background dark:bg-[#152A32]">
       <Header />
-      <div className="bg-[url('/download (1).png')]">
+      <div className="bg-background dark:bg-[#152A32]">
       <div className="max-w-6xl mx-auto px-4 text-center mb-16 pt-20">
         <div className="mb-4">
           <span className="text-sm font-bold text-accent uppercase tracking-wider px-4 py-2 rounded-full border-2 border-black bg-yellow-300 shadow-[3px_3px_0px_0px_black]">
@@ -30,13 +30,13 @@ export default function EventsPage() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 mb-8 text-lg">
-          <span className="px-4 py-2 rounded-lg bg-green-100 border border-green-300 font-semibold">
+          <span className="px-4 py-2 text-black rounded-lg bg-green-100 border border-green-300 font-semibold">
             December 2025
           </span>
-          <span className="px-4 py-2 rounded-lg bg-purple-100 border border-purple-300 font-semibold">
+          <span className="px-4 py-2 text-black rounded-lg bg-purple-100 border border-purple-300 font-semibold">
             5th Floor ICT Lab
           </span>
-          <span className="px-4 py-2 rounded-lg bg-pink-100 border border-pink-300 font-semibold">
+          <span className="px-4 py-2 text-black rounded-lg bg-pink-100 border border-pink-300 font-semibold">
             Free Certificates
           </span>
         </div>
@@ -45,7 +45,7 @@ export default function EventsPage() {
           href="https://forms.gle/ViBzt5nMncQUBoME7" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-block px-8 py-4 text-xl font-black rounded-xl border-3 border-black bg-[#73d1fd] shadow-[6px_6px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+          className="inline-block px-8 py-4 text-xl font-black rounded-xl border-3 text-black border-black bg-[#73d1fd] shadow-[6px_6px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
         >
           REGISTER NOW
         </a>
@@ -60,7 +60,7 @@ export default function EventsPage() {
           {projects.map((project, index) => (
             <div 
               key={index}
-              className="p-6 rounded-2xl border-3 border-black bg-white shadow-[6px_6px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+              className="p-6 rounded-2xl border-3 text-black border-black bg-white shadow-[6px_6px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
             >
               <div className="text-5xl mb-4">{project.icon}</div>
               <p className="text-2xl font-bold mb-2">{project.name}</p>
@@ -77,14 +77,14 @@ export default function EventsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-8 rounded-2xl border-3 border-black bg-yellow-200 shadow-[6px_6px_0px_0px_black]">
             <div className="text-5xl mb-4">🎓</div>
-            <p className="text-2xl font-bold mb-2">Participation Certificates</p>
-            <p className="text-lg font-semibold">All participants receive certificates of completion!</p>
+            <p className="text-2xl text-black font-bold mb-2">Participation Certificates</p>
+            <p className="text-lg text-black font-semibold">All participants receive certificates of completion!</p>
           </div>
           
           <div className="p-8 rounded-2xl border-3 border-black bg-orange-200 shadow-[6px_6px_0px_0px_black]">
             <div className="text-5xl mb-4">🏆</div>
-            <p className="text-2xl font-bold mb-2">Achievement Awards</p>
-            <p className="text-lg font-semibold">Top 3 quiz winners earn special Achievement Awards!</p>
+            <p className="text-2xl text-black font-bold mb-2">Achievement Awards</p>
+            <p className="text-lg text-black font-semibold">Top 3 quiz winners earn special Achievement Awards!</p>
           </div>
         </div>
       </div>
@@ -96,26 +96,26 @@ export default function EventsPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 rounded-2xl border-3 border-black bg-blue-200 shadow-[6px_6px_0px_0px_black] text-center">
             <div className="text-4xl mb-3">🤖</div>
-            <p className="text-xl font-bold mb-2">Robotics Fundamentals</p>
+            <p className="text-xl text-black font-bold mb-2">Robotics Fundamentals</p>
             <p className="font-semibold text-muted-foreground">Master the basics of robotics and automation</p>
           </div>
           
           <div className="p-6 rounded-2xl border-3 border-black bg-green-200 shadow-[6px_6px_0px_0px_black] text-center">
             <div className="text-4xl mb-3">⚡</div>
-            <p className="text-xl font-bold mb-2">Arduino Programming</p>
+            <p className="text-xl text-black font-bold mb-2">Arduino Programming</p>
             <p className="font-semibold text-muted-foreground">Code microcontrollers like a pro</p>
           </div>
           
           <div className="p-6 rounded-2xl border-3 border-black bg-purple-200 shadow-[6px_6px_0px_0px_black] text-center">
             <div className="text-4xl mb-3">📡</div>
-            <p className="text-xl font-bold mb-2">Sensor Integration</p>
+            <p className="text-xl text-black font-bold mb-2">Sensor Integration</p>
             <p className="font-semibold text-muted-foreground">Work with various sensors and components</p>
           </div>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto px-4 mb-16">
+      <div className="max-w-6xl mx-auto px-4 pb-16">
         <div className="p-8 rounded-2xl border-3 border-black bg-gradient-to-br from-pink-200 to-purple-200 shadow-[8px_8px_0px_0px_black]">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-black text-black mb-6 text-center">
             Event <span className="text-[#73d1fd]">Details</span> 📋
           </h2>
           
@@ -123,17 +123,17 @@ export default function EventsPage() {
             <div className="flex items-center gap-3">
               <span className="text-3xl">📍</span>
               <div>
-                <div className="font-black">Venue:</div>
-                <div>ICT Lab, 5th Floor</div>
-                <div>Motijheel Model School & College</div>
+                <div className="font-black text-black">Venue:</div>
+                <div className="text-black">ICT Lab, 5th Floor</div>
+                <div className="text-black">Motijheel Model School & College</div>
               </div>
             </div>
             
             <div className="flex items-center gap-3">
               <span className="text-3xl">📅</span>
               <div>
-                <div className="font-black">Date:</div>
-                <div>Coming Soon - December 2025</div>
+                <div className="font-black text-black">Date:</div>
+                <div className="text-black">Coming Soon - December 2025</div>
                 <div className="text-sm text-muted-foreground">Stay tuned for the exact date!</div>
               </div>
             </div>
@@ -141,8 +141,8 @@ export default function EventsPage() {
             <div className="flex items-center gap-3">
               <span className="text-3xl">💰</span>
               <div>
-                <div className="font-black">Registration:</div>
-                <div>Open Now!</div>
+                <div className="font-black text-black">Registration:</div>
+                <div className="text-black">Open Now!</div>
                 <div className="text-sm text-muted-foreground">Limited seats available</div>
               </div>
             </div>
@@ -150,8 +150,8 @@ export default function EventsPage() {
             <div className="flex items-center gap-3">
               <span className="text-3xl">👥</span>
               <div>
-                <div className="font-black">Who Can Join:</div>
-                <div>Students of all levels</div>
+                <div className="font-black text-black">Who Can Join:</div>
+                <div className="text-black">Students of all levels</div>
                 <div className="text-sm text-muted-foreground">No prior experience needed!</div>
               </div>
             </div>
