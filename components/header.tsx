@@ -23,7 +23,7 @@ export default function Header() {
   }
 //end of copied part
   return (
-  <header ref={headerRef} className="sticky top-0 z-50 dark:bg-[#322215] bg-background backdrop-blur border-b-2 border-border">
+  <header ref={headerRef} className="sticky top-0 z-50 dark:bg-card/50 bg-background backdrop-blur border-b-2 border-border">
       {/* Floating nav for mobile */}
       {(() => {
         const navItems = [
