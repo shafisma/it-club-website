@@ -11,7 +11,7 @@ import SecMediaPublicationsSecretary from "./cards/team/2ndMediaPublicationsSecr
 
 export default function Team() {
   return (
-    <section id="team" className="py-20 bg-card/50 dark:bg-[#322215]">
+    <section id="team" className="py-20 bg-card/50 dark:bg-[#011627]">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center text-foreground">Club Structure</h2>
         <p className="text-center text-muted-foreground mb-12 text-lg">Led by a dedicated executive committee</p>
