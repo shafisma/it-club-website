@@ -62,14 +62,14 @@ export default function Header() {
             Events
           </a>
           <a
-            href="#about"
+            href="/#about"
             onClick={(e) => handleNavClick(e, "about")}
             className="text-foreground hover:text-accent font-medium transition duration-200"
           >
             About
           </a>
           <a
-            href="#team"
+            href="/#team"
             onClick={(e) => handleNavClick(e, "team")}
             className="text-foreground hover:text-accent font-medium transition duration-200"
           >
@@ -123,7 +123,7 @@ export default function Header() {
               Team
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               onClick={(e) => handleNavClick(e, "contact")}
               className="text-foreground hover:text-accent font-medium transition duration-200"
             >

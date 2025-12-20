@@ -5,19 +5,23 @@ import { Card } from "@/components/ui/card";
 import { Trash2, Edit2, Plus, X, LogOut } from "lucide-react";
 import {
   ChangelogEntry,
-  STORAGE_KEY,
   ADMIN_PASSWORD,
   ADMIN_SESSION_KEY,
 } from "@/lib/changelog";
 
+interface EditingEntry extends Partial<ChangelogEntry> {
+  id?: string;
+}
+
 export default function AdminChangelog() {
   const [entries, setEntries] = useState<ChangelogEntry[]>([]);
-  const [editingIndex, setEditingIndex] = useState<number | null>(null);
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [newChange, setNewChange] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [passwordInput, setPasswordInput] = useState("");
-  const [formData, setFormData] = useState<ChangelogEntry>({
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState<EditingEntry>({
     version: "",
     date: "",
     category: "feature",
@@ -34,21 +38,25 @@ export default function AdminChangelog() {
     }
   }, []);
 
-  // Load entries from localStorage on mount
+  // Load entries from API on mount
   useEffect(() => {
     if (!isAuthenticated) return;
 
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      const entries = JSON.parse(saved);
-      // Sort by date - latest first
-      const sorted = entries.sort((a: ChangelogEntry, b: ChangelogEntry) => {
-        return new Date(b.date).getTime() - new Date(a.date).getTime();
-      });
-      setEntries(sorted);
-    } else {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify([]));
-    }
+    const fetchEntries = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch("/api/changelog");
+        const data = await response.json();
+        setEntries(data || []);
+      } catch (error) {
+        console.error("Failed to fetch changelog:", error);
+        alert("Failed to load changelog entries");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchEntries();
   }, [isAuthenticated]);
 
   const handleLogin = (e: React.FormEvent) => {
@@ -69,19 +77,9 @@ export default function AdminChangelog() {
     setPasswordInput("");
   };
 
-  // Save entries to localStorage
-  const saveEntries = (updatedEntries: ChangelogEntry[]) => {
-    // Sort by date - latest first
-    const sorted = updatedEntries.sort((a, b) => {
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
-    setEntries(sorted);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(sorted));
-  };
-
   const handleAddEntry = () => {
     setShowForm(true);
-    setEditingIndex(null);
+    setEditingId(null);
     setFormData({
       version: "",
       date: new Date().toISOString().split("T")[0],
@@ -92,43 +90,81 @@ export default function AdminChangelog() {
     });
   };
 
-  const handleEditEntry = (index: number) => {
-    setEditingIndex(index);
+  const handleEditEntry = (entry: ChangelogEntry) => {
+    setEditingId(entry.id || null);
     setShowForm(true);
-    setFormData({ ...entries[index] });
+    setFormData(entry);
   };
 
-  const handleSaveEntry = () => {
+  const handleSaveEntry = async () => {
     if (!formData.version || !formData.title || !formData.description) {
       alert("Please fill in all required fields");
       return;
     }
 
-    let updatedEntries;
-    if (editingIndex !== null) {
-      updatedEntries = entries.map((entry, idx) =>
-        idx === editingIndex ? formData : entry
-      );
-    } else {
-      updatedEntries = [...entries, formData];
-    }
+    try {
+      setIsLoading(true);
 
-    saveEntries(updatedEntries);
-    setShowForm(false);
-    setFormData({
-      version: "",
-      date: "",
-      category: "feature",
-      title: "",
-      description: "",
-      changes: [],
-    });
+      if (editingId) {
+        // Update existing entry
+        const response = await fetch(`/api/changelog/${editingId}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) throw new Error("Failed to update entry");
+
+        const updated = await response.json();
+        setEntries(entries.map((e) => (e.id === editingId ? updated : e)));
+      } else {
+        // Create new entry
+        const response = await fetch("/api/changelog", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) throw new Error("Failed to create entry");
+
+        const created = await response.json();
+        setEntries([created, ...entries]);
+      }
+
+      setShowForm(false);
+      setFormData({
+        version: "",
+        date: "",
+        category: "feature",
+        title: "",
+        description: "",
+        changes: [],
+      });
+    } catch (error) {
+      console.error("Failed to save entry:", error);
+      alert("Failed to save entry");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleDeleteEntry = (index: number) => {
-    if (confirm("Are you sure you want to delete this entry?")) {
-      const updatedEntries = entries.filter((_, idx) => idx !== index);
-      saveEntries(updatedEntries);
+  const handleDeleteEntry = async (entry: ChangelogEntry) => {
+    if (!confirm("Are you sure you want to delete this entry?")) return;
+
+    try {
+      setIsLoading(true);
+      const response = await fetch(`/api/changelog/${entry.id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) throw new Error("Failed to delete entry");
+
+      setEntries(entries.filter((e) => e.id !== entry.id));
+    } catch (error) {
+      console.error("Failed to delete entry:", error);
+      alert("Failed to delete entry");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -136,7 +172,7 @@ export default function AdminChangelog() {
     if (newChange.trim()) {
       setFormData({
         ...formData,
-        changes: [...formData.changes, newChange],
+        changes: [...(formData.changes || []), newChange],
       });
       setNewChange("");
     }
@@ -145,13 +181,13 @@ export default function AdminChangelog() {
   const handleRemoveChange = (index: number) => {
     setFormData({
       ...formData,
-      changes: formData.changes.filter((_, idx) => idx !== index),
+      changes: (formData.changes || []).filter((_, idx) => idx !== index),
     });
   };
 
   const handleCancelForm = () => {
     setShowForm(false);
-    setEditingIndex(null);
+    setEditingId(null);
     setFormData({
       version: "",
       date: "",
@@ -201,7 +237,7 @@ export default function AdminChangelog() {
                   value={passwordInput}
                   onChange={(e) => setPasswordInput(e.target.value)}
                   placeholder="Enter password"
-                  className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                  className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black bg-white dark:bg-gray-900 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                   autoFocus
                 />
               </div>
@@ -251,7 +287,7 @@ export default function AdminChangelog() {
             <Card className="mb-12 overflow-hidden border-2 border-black shadow-[4px_4px_0px_0px_black] rounded-lg p-8">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-2xl font-bold text-foreground">
-                  {editingIndex !== null ? "Edit Entry" : "New Entry"}
+                  {editingId ? "Edit Entry" : "New Entry"}
                 </h2>
                 <button
                   onClick={handleCancelForm}
@@ -275,7 +311,7 @@ export default function AdminChangelog() {
                       onChange={(e) =>
                         setFormData({ ...formData, version: e.target.value })
                       }
-                      className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                      className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black bg-white dark:bg-gray-900 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                     />
                   </div>
                   <div>
@@ -290,7 +326,7 @@ export default function AdminChangelog() {
                           category: e.target.value as any,
                         })
                       }
-                      className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                      className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black bg-white dark:bg-gray-900 text-black dark:text-white"
                     >
                       <option value="release">Release</option>
                       <option value="feature">Feature</option>
@@ -312,7 +348,7 @@ export default function AdminChangelog() {
                       onChange={(e) =>
                         setFormData({ ...formData, date: e.target.value })
                       }
-                      className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                      className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black bg-white dark:bg-gray-900 text-black dark:text-white"
                     />
                   </div>
                   <div>
@@ -326,7 +362,7 @@ export default function AdminChangelog() {
                       onChange={(e) =>
                         setFormData({ ...formData, title: e.target.value })
                       }
-                      className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                      className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black bg-white dark:bg-gray-900 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                     />
                   </div>
                 </div>
@@ -343,7 +379,7 @@ export default function AdminChangelog() {
                       setFormData({ ...formData, description: e.target.value })
                     }
                     rows={3}
-                    className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                    className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black bg-white dark:bg-gray-900 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                   />
                 </div>
 
@@ -363,7 +399,7 @@ export default function AdminChangelog() {
                           handleAddChange();
                         }
                       }}
-                      className="flex-1 px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                      className="flex-1 px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black bg-white dark:bg-gray-900 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                     />
                     <button
                       onClick={handleAddChange}
@@ -374,9 +410,9 @@ export default function AdminChangelog() {
                   </div>
 
                   {/* Changes List */}
-                  {formData.changes.length > 0 && (
+                  {(formData.changes || []).length > 0 && (
                     <div className="space-y-2">
-                      {formData.changes.map((change, idx) => (
+                      {(formData.changes || []).map((change, idx) => (
                         <div
                           key={idx}
                           className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-3 rounded-lg"
@@ -400,13 +436,19 @@ export default function AdminChangelog() {
                 <div className="flex gap-3 pt-4">
                   <button
                     onClick={handleSaveEntry}
-                    className="flex-1 px-6 py-2 bg-[#10b981] text-white font-semibold border-2 border-black rounded-lg hover:shadow-none transition-all"
+                    disabled={isLoading}
+                    className="flex-1 px-6 py-2 bg-[#10b981] text-white font-semibold border-2 border-black rounded-lg hover:shadow-none transition-all disabled:opacity-50"
                   >
-                    {editingIndex !== null ? "Update Entry" : "Create Entry"}
+                    {isLoading
+                      ? "Saving..."
+                      : editingId
+                      ? "Update Entry"
+                      : "Create Entry"}
                   </button>
                   <button
                     onClick={handleCancelForm}
-                    className="flex-1 px-6 py-2 bg-gray-300 text-black font-semibold border-2 border-black rounded-lg hover:shadow-none transition-all"
+                    disabled={isLoading}
+                    className="flex-1 px-6 py-2 bg-gray-300 text-black font-semibold border-2 border-black rounded-lg hover:shadow-none transition-all disabled:opacity-50"
                   >
                     Cancel
                   </button>
@@ -421,14 +463,18 @@ export default function AdminChangelog() {
               All Entries ({entries.length})
             </h2>
 
-            {entries.length === 0 ? (
+            {isLoading ? (
+              <Card className="p-6 border-2 border-black rounded-lg text-center text-muted-foreground">
+                Loading entries...
+              </Card>
+            ) : entries.length === 0 ? (
               <Card className="p-6 border-2 border-black rounded-lg text-center text-muted-foreground">
                 No entries yet. Create one to get started!
               </Card>
             ) : (
-              entries.map((entry, index) => (
+              entries.map((entry) => (
                 <Card
-                  key={index}
+                  key={entry.id}
                   className="overflow-hidden border-2 border-black shadow-[4px_4px_0px_0px_black] rounded-lg p-6"
                 >
                   <div className="flex items-start justify-between mb-4">
@@ -456,14 +502,16 @@ export default function AdminChangelog() {
                     </div>
                     <div className="flex gap-2">
                       <button
-                        onClick={() => handleEditEntry(index)}
-                        className="p-2 bg-[#3b82f6] text-white rounded-lg border-2 border-black hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+                        onClick={() => handleEditEntry(entry)}
+                        disabled={isLoading}
+                        className="p-2 bg-[#3b82f6] text-white rounded-lg border-2 border-black hover:translate-x-0.5 hover:translate-y-0.5 transition-all disabled:opacity-50"
                       >
                         <Edit2 className="w-4 h-4" />
                       </button>
                       <button
-                        onClick={() => handleDeleteEntry(index)}
-                        className="p-2 bg-[#ef4444] text-white rounded-lg border-2 border-black hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+                        onClick={() => handleDeleteEntry(entry)}
+                        disabled={isLoading}
+                        className="p-2 bg-[#ef4444] text-white rounded-lg border-2 border-black hover:translate-x-0.5 hover:translate-y-0.5 transition-all disabled:opacity-50"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>

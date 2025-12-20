@@ -28,7 +28,7 @@ export default function Hero() {
         </div>
 
         <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foregroundleading-tight">
-          Drop Your &nbsp;
+          Drop Your&nbsp;
           <span className="text-[#73d1fd]">Innovation</span>
         </h1>
 
