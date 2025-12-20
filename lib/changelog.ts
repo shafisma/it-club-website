@@ -10,7 +10,6 @@ export interface ChangelogEntry {
 export const STORAGE_KEY = "changelog_entries";
 
 // Admin password - change this to your desired password
-export const ADMIN_PASSWORD =
-  process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "admin123";
+export const ADMIN_PASSWORD = process.env.NEXT_ADMIN_PASSWORD || "admin123";
 
 export const ADMIN_SESSION_KEY = "admin_session_token";
