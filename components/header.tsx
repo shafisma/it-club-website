@@ -29,72 +29,35 @@ export default function Header() {
   }
   //end of copied part
   return (
-    <header
-      ref={headerRef}
-      className="sticky top-0 z-50 dark:bg-card/50 bg-background backdrop-blur border-b-2 border-border"
-    >
-      {/* Floating nav for mobile */}
-      {(() => {
-        const navItems = [
-          { name: "Events", link: "events" },
-          { name: "About", link: "#about" },
-          { name: "Activities", link: "#activities" },
-          { name: "Team", link: "#team" },
-          { name: "Contact", link: "#contact" },
-        ];
-        return <FloatingNav navItems={navItems} />;
-      })()}
-      <nav className="hidden md:flex max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 justify-between items-center">
-        <Link href="/" className="text-xl font-bold text-primary">
-          <Image
-            src="/logo.png"
-            alt="Motijheel Model IT Club"
-            width={50}
-            height={50}
-          />
-        </Link>
+    <>
+      {/* Floating nav for mobile - visible only on mobile screens */}
+      <div className="md:hidden">
+        {(() => {
+          const navItems = [
+            { name: "Home", link: "/" },
+            { name: "Events", link: "/events" },
+            { name: "Changelog", link: "/changelog" },
+            { name: "Blogs", link: "/blog" },
+          ];
+          return <FloatingNav navItems={navItems} />;
+        })()}
+      </div>
 
-        <div className="flex items-center gap-8">
-          <a
-            href="/events"
-            className="text-transparent bg-linear-to-br from-blue-500 to-teal-400 bg-clip-text hover:text-accent font-medium transition duration-200"
-          >
-            Events
-          </a>
-          <a
-            href="/#about"
-            onClick={(e) => handleNavClick(e, "about")}
-            className="text-foreground hover:text-accent font-medium transition duration-200"
-          >
-            About
-          </a>
-          <a
-            href="/#team"
-            onClick={(e) => handleNavClick(e, "team")}
-            className="text-foreground hover:text-accent font-medium transition duration-200"
-          >
-            Team
-          </a>
-          <a
-            href="#contact"
-            onClick={(e) => handleNavClick(e, "contact")}
-            className="text-foreground hover:text-accent font-medium transition duration-200"
-          >
-            Contact
-          </a>
-          <a
-            href="/Changelog"
-            className="text-foreground hover:text-accent font-medium transition duration-200"
-          >
-            Changelog
-          </a>
-          <ThemeToggle />
-        </div>
-      </nav>
+      <header
+        ref={headerRef}
+        className="hidden md:block sticky top-0 z-50 dark:bg-card/50 bg-background backdrop-blur border-b-2 border-border"
+      >
+        <nav className="flex max-w-7xl mx-auto px-4 lg:px-8 py-4 justify-between items-center">
+          <Link href="/" className="text-xl font-bold text-primary">
+            <Image
+              src="/logo.png"
+              alt="Motijheel Model IT Club"
+              width={50}
+              height={50}
+            />
+          </Link>
 
-      {isOpen && (
-        <div className="md:hidden bg-card border-t border-border">
-          <div className="px-4 py-4 flex flex-col gap-4">
+          <div className="flex items-center gap-8">
             <a
               href="/events"
               className="text-foreground hover:text-accent font-medium transition duration-200"
@@ -102,28 +65,21 @@ export default function Header() {
               Events
             </a>
             <a
-              href="#about"
+              href="/#about"
               onClick={(e) => handleNavClick(e, "about")}
               className="text-foreground hover:text-accent font-medium transition duration-200"
             >
               About
             </a>
             <a
-              href="#activities"
-              onClick={(e) => handleNavClick(e, "activities")}
-              className="text-foreground hover:text-accent font-medium transition duration-200"
-            >
-              Activities
-            </a>
-            <a
-              href="#team"
+              href="/#team"
               onClick={(e) => handleNavClick(e, "team")}
               className="text-foreground hover:text-accent font-medium transition duration-200"
             >
               Team
             </a>
             <a
-              href="/#contact"
+              href="#contact"
               onClick={(e) => handleNavClick(e, "contact")}
               className="text-foreground hover:text-accent font-medium transition duration-200"
             >
@@ -135,9 +91,63 @@ export default function Header() {
             >
               Changelog
             </a>
+            <a
+              href="/blog"
+              className="text-transparent bg-linear-to-br from-blue-500 to-teal-400 bg-clip-text hover:text-accent font-medium transition duration-200"
+            >
+              Blogs
+            </a>
+            <ThemeToggle />
           </div>
-        </div>
-      )}
-    </header>
+        </nav>
+
+        {isOpen && (
+          <div className="md:hidden bg-card border-t border-border">
+            <div className="px-4 py-4 flex flex-col gap-4">
+              <a
+                href="/events"
+                className="text-foreground hover:text-accent font-medium transition duration-200"
+              >
+                Events
+              </a>
+              <a
+                href="#about"
+                onClick={(e) => handleNavClick(e, "about")}
+                className="text-foreground hover:text-accent font-medium transition duration-200"
+              >
+                About
+              </a>
+              <a
+                href="#activities"
+                onClick={(e) => handleNavClick(e, "activities")}
+                className="text-foreground hover:text-accent font-medium transition duration-200"
+              >
+                Activities
+              </a>
+              <a
+                href="#team"
+                onClick={(e) => handleNavClick(e, "team")}
+                className="text-foreground hover:text-accent font-medium transition duration-200"
+              >
+                Team
+              </a>
+              <a
+                href="/#contact"
+                onClick={(e) => handleNavClick(e, "contact")}
+                className="text-foreground hover:text-accent font-medium transition duration-200"
+              >
+                Contact
+              </a>
+              <a
+                href="/Changelog"
+                className="text-foreground hover:text-accent font-medium transition duration-200"
+              >
+                Changelog
+              </a>
+            </div>
+          </div>
+        )}
+      </header>
+    </>
   );
 }

@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist-sans)'],
+        sans: ["var(--font-geist-sans)"],
         mono: ["ui-monospace", "monospace"],
         space: ['"Space Grotesk"', ...defaultTheme.fontFamily.sans],
       },
@@ -20,5 +20,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
-}
+  plugins: [require("@tailwindcss/typography")],
+};

@@ -15,11 +15,6 @@ export const FloatingNav = ({
   }[];
   className?: string;
 }) => {
-  const isMobile = useIsMobile(); // ✅ check screen size
-
-  // ⛔ don't show the nav if user is not on mobile
-  if (!isMobile) return null;
-
   return (
     <AnimatePresence>
       <motion.div

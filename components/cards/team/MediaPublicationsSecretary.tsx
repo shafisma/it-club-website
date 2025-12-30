@@ -4,14 +4,20 @@ export default function MediaPublicationsSecretary() {
       <div className="w-12 h-12 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
         <span className="text-xl font-bold text-accent">✦</span>
       </div>
-      <h3 className="text-lg font-bold text-black mb-3">Media & Publications Secretary</h3>
-      
+      <h3 className="text-lg font-bold text-black mb-3">
+        Media & Publications Secretary
+      </h3>
+
       <div className="space-y-4">
         <div>
-          <p className="text-accent font-semibold text-sm mb-1">Aryan Rafi</p>
-          <p className="text-muted-foreground text-sm mb-1">Class: 9/Surma</p>
+          <p className="text-accent font-semibold text-sm mb-1">
+            Md. Rafim Huq
+          </p>
+          <p className="text-muted-foreground text-sm mb-1">
+            Class 9/Kopotakkho
+          </p>
         </div>
       </div>
     </div>
-  )
+  );
 }

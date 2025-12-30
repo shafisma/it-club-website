@@ -1,13 +1,38 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { BlogPost } from "@/lib/blog";
+
 export default function Hero() {
+  const [latestBlog, setLatestBlog] = useState<BlogPost | null>(null);
+
+  useEffect(() => {
+    async function fetchLatestBlog() {
+      try {
+        const response = await fetch("/api/blog");
+        const blogs = await response.json();
+        if (blogs && blogs.length > 0) {
+          setLatestBlog(blogs[0]);
+        }
+      } catch (error) {
+        console.error("Failed to fetch latest blog:", error);
+      }
+    }
+    fetchLatestBlog();
+  }, []);
+
   return (
     <section className="min-h-screen flex items-center justify-center">
       <div className="max-w-4xl mx-auto px-4 text-center">
         <div className="mb-10">
-          <a href="/events" target="_blank" rel="noopener noreferrer">
-            <span className="inline-flex items-center justify-center whitespace-nowrap rounded-2xl text-sm font-medium ring-offset-white transition-all gap-2 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-[oklch(0%_0_0)] bg-yellow-300 border-2 border-black shadow-[4px_4px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none h-10 px-4 py-2">
-              Join us at RoboVerse{" "}
+          <a
+            href={latestBlog ? `/blog/${latestBlog.slug}` : "/blog"}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="inline-flex capitalize items-center justify-center whitespace-nowrap rounded-2xl text-sm font-medium ring-offset-white transition-all gap-2 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-[oklch(0%_0_0)] bg-yellow-300 border-2 border-black shadow-[4px_4px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none h-10 px-4 py-2">
+              {latestBlog ? latestBlog.category : ""} |{" "}
+              {latestBlog ? latestBlog.title : "Loading..."}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
